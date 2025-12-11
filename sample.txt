@@ -1,0 +1,2 @@
+Artificial Intelligence is transforming the world.
+This is a test file for our Mini RAG chatbot project.

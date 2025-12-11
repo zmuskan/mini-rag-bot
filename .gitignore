@@ -1,0 +1,45 @@
+﻿# Python
+_pycache_/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+.venv/
+VENV/
+*.egg-info/
+dist/
+build/
+
+# Virtual envs and system
+*.sqlite3
+*.db
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# OneDrive / temp
+~$*
+*.tmp
+
+# Data / large files
+data/
+models/
+*.onnx
+*.pt
+*.bin
+
+# Node / others if present
+node_modules/
+
+# pip cache
+pip-wheel-metadata/
+
+# Python packaging
+*.egg
