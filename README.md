@@ -1,4 +1,4 @@
-﻿Mini RAG Bot (Local Document-Based Chatbot)
+﻿# Mini RAG Bot (Local Document-Based Chatbot)
 
 This project is a local Retrieval-Augmented Generation (RAG) chatbot built to understand how modern document-based question answering systems work in practice.
 
@@ -6,85 +6,88 @@ The system allows a user to upload a document and ask questions. Answers are gen
 
 This project was developed as a learning exercise by a final-year Chemical Engineering student exploring Data Science, Machine Learning, and applied AI systems.
 
-Project Overview
+---
+
+## Project Overview
 
 The chatbot follows a standard RAG pipeline:
 
-A document is uploaded by the user.
+1. A document is uploaded by the user  
+2. The document text is extracted and split into smaller chunks  
+3. Each chunk is converted into embeddings using a sentence-transformer model  
+4. The embeddings are stored in a FAISS vector index  
+5. When a question is asked, the most relevant chunks are retrieved  
+6. The retrieved context and the question are passed to a local LLM via Ollama  
+7. The final answer is generated only from the retrieved context  
 
-The document text is extracted and split into smaller chunks.
+---
 
-Each chunk is converted into embeddings using a sentence-transformer model.
+## Key Features
 
-The embeddings are stored in a FAISS vector index.
+- Runs completely locally (no external API calls)
+- Uses semantic search instead of keyword matching
+- Answers are grounded strictly in the uploaded document
+- Simple Streamlit-based user interface
+- Modular code structure designed for learning
 
-When a question is asked, the most relevant chunks are retrieved.
+---
 
-The retrieved context and the question are passed to a local LLM via Ollama.
+## Technology Stack
 
-The final answer is generated based only on the retrieved context.
+- Python  
+- Streamlit (user interface)  
+- Sentence-Transformers (text embeddings)  
+- FAISS (vector similarity search)  
+- Ollama (local LLM runtime)  
+- Llama 3 (language model)  
+- LangChain (Ollama wrapper)  
 
-Key Features
+---
 
-Runs completely locally (no external API calls)
-
-Uses semantic search instead of keyword matching
-
-Answers are grounded in the uploaded document
-
-Simple Streamlit-based user interface
-
-Modular code structure for learning and experimentation
-
-Technology Stack
-
-Python
-
-Streamlit (user interface)
-
-Sentence-Transformers (text embeddings)
-
-FAISS (vector similarity search)
-
-Ollama (local LLM runtime)
-
-Llama 3 (language model)
-
-LangChain (Ollama wrapper)
-
-Repository Structure
+## Repository Structure
 
 mini-rag-bot/
-│── app.py                 # Streamlit application
-│── rag_engine.py          # Embedding, FAISS, and RAG logic
-│── document_loader.py     # Document loading and text extraction
-│── run_loader_tests.py    # Manual loader test script
-│── test_rag.py            # End-to-end RAG test
-│── sample.txt             # Sample document
-│── README.md
-│── .gitignore
+├── app.py # Streamlit application
+├── rag_engine.py # Embedding, FAISS, and RAG logic
+├── document_loader.py # Document loading and text extraction
+├── run_loader_tests.py # Manual loader test script
+├── test_rag.py # End-to-end RAG test
+├── sample.txt # Sample document
+├── README.md
+└── .gitignore
 
 
-How to Run the Project Locally
-Prerequisites
+---
 
-Python 3.9 or later
+## How to Run the Project Locally
 
-Git
+### Prerequisites
 
-Ollama installed locally
+- Python 3.9 or later  
+- Git  
+- Ollama installed locally  
 
-Install Ollama from:
-https://ollama.com
+Install Ollama from:  
+https://ollama.com  
 
 After installation, pull a model:
+
 ollama run llama3
 
-Clone the Repository
+
+---
+
+### Clone the Repository
+
 git clone https://github.com/zmuskan/mini-rag-bot.git
+
 cd mini-rag-bot
 
-Create and Activate Virtual Environment
+
+---
+
+### Create and Activate Virtual Environment
+
 python -m venv venv
 
 
@@ -95,26 +98,45 @@ venv\Scripts\activate
 
 Linux / macOS:
 
+
 source venv/bin/activate
 
-Install Dependencies
+
+---
+
+### Install Dependencies
+
+
+
 pip install -r requirements.txt
 
 
-Note:
+Note:  
 OCR-related libraries are optional and only required for scanned PDFs or image documents.
 
-Run the Application
+---
+
+### Run the Application
+
+
+
 streamlit run app.py
 
 
 The application will open in the browser at:
 
+
+
 http://localhost:8501
 
-Testing
+
+---
+
+## Testing
 
 To test document loading:
+
+
 
 python run_loader_tests.py
 
@@ -123,32 +145,32 @@ To test the full RAG pipeline:
 
 python test_rag.py
 
-Current Limitations
 
-Vector index is created in memory and not persisted
+---
 
-Chunking strategy is basic
+## Current Limitations
 
-Single-document support only
+- Vector index is created in memory and not persisted  
+- Chunking strategy is basic  
+- Single-document support only  
+- No citation highlighting in answers  
 
-No citation highlighting in answers
+---
 
-These limitations are intentional to keep the project simple and focused on learning core concepts.
-
-Learning Outcome
+## Learning Outcome
 
 Through this project, I learned:
 
-How Retrieval-Augmented Generation systems work internally
+- How Retrieval-Augmented Generation systems work internally  
+- The role of embeddings and vector similarity search  
+- How local LLMs can be integrated using Ollama  
+- How to structure an AI application with clear separation of concerns  
 
-The role of embeddings and vector similarity search
+---
 
-How local LLMs can be integrated using Ollama
+## Author
 
-Structuring an AI application with clear separation of concerns
+Zaiba Muskan  
+Final-year B.Tech Chemical Engineering student  
+Exploring Data Science, Machine Learning, and applied AI systems  
 
-Author
-
-Zaiba Muskan
-Final-year B.Tech Chemical Engineering student
-Exploring Data Science, Machine Learning, and applied AI systems
