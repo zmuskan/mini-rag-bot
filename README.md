@@ -42,22 +42,20 @@ The chatbot follows a standard RAG pipeline:
 - Llama 3 (language model)  
 - LangChain (Ollama wrapper)  
 
----
-
 ## Repository Structure
 
+```
 mini-rag-bot/
-├── app.py # Streamlit application
-├── rag_engine.py # Embedding, FAISS, and RAG logic
-├── document_loader.py # Document loading and text extraction
-├── run_loader_tests.py # Manual loader test script
-├── test_rag.py # End-to-end RAG test
-├── sample.txt # Sample document
+├── app.py
+├── rag_engine.py
+├── document_loader.py
+├── run_loader_tests.py
+├── test_rag.py
+├── sample.txt
 ├── README.md
 └── .gitignore
+```
 
-
----
 
 ## How to Run the Project Locally
 
